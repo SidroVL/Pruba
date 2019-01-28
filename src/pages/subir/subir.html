@@ -1,0 +1,75 @@
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-buttons left>
+        <button ion-button (click)="cerrar_modal()">
+          Cerrar
+        </button>
+      </ion-buttons>
+      <!-- <ion-title>Crear Post</ion-title>  -->
+      <ion-title>{{titulo }}</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="crear_post()"
+                [disabled]="titulo.length<1  || imagenPreview.length < 1 ">
+          Crear post
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Título</ion-label>
+        <!-- <ion-input type="text"></ion-input> -->
+        <ion-input type="text"[(ngModel)]="titulo"></ion-input>
+      </ion-item>
+      <ion-col col-4></ion-col>
+      <ion-item>
+          <ion-label floating>Autor</ion-label>       
+          <ion-input type="text"[(ngModel)]="Autor"></ion-input>
+      </ion-item>
+      <ion-col col-4></ion-col>
+      <ion-item>
+          <ion-label floating>Localizacion</ion-label>       
+          <ion-input type="text"[(ngModel)]="Localizacion"></ion-input>
+      </ion-item>
+      <ion-col col-4></ion-col>
+      <ion-item>
+          <ion-label floating>Copyright</ion-label>       
+          <ion-input type="text"[(ngModel)]="Copyright"></ion-input>
+      </ion-item>
+      <ion-col col-4></ion-col>
+      <ion-item *ngIf="imagenPreview!=''">
+        <!-- <img src="https://galicia.economiadigital.es/uploads/s1/57/48/50/0/praza-do-ferro-ourense_15_970x597.jpeg"> -->
+        <img [src]="imagenPreview">
+      </ion-item>
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button
+                block
+                item-left
+                (click)="seleccionar_foto()">
+                <ion-icon name="photos"></ion-icon>
+                &nbsp;Gallery
+          </button>
+        </ion-col>
+        <ion-col>
+            <button ion-button
+                  block
+                  item-left
+                  (click)="mostrar_camara()">
+                  <ion-icon name="camera"></ion-icon>
+                  &nbsp;Camera
+            </button>
+          </ion-col>      
+      </ion-row>
+    </ion-grid>
+  
+  </ion-content>
+  

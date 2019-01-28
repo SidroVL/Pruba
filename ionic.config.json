@@ -1,0 +1,7 @@
+{
+  "name": "IonFrame",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
